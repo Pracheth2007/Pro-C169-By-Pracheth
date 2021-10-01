@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Menu Card</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <!-- We import arjs version without NFT but with marker + location based support -->
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+  <!-- SweetAlert -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+//    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
+//  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCeViqnxoJ1hSHwQUfun-TuNSxVvD4t0xs",
+      authDomain: "wily-app-b1a2e.firebaseapp.com",
+      databaseURL: "https://wily-app-b1a2e.firebaseio.com",
+      projectId: "wily-app-b1a2e",
+      storageBucket: "wily-app-b1a2e.appspot.com",
+      messagingSenderId: "400919156538",
+      appId: "1:400919156538:web:4a9a1c3c67073c27c4e203",
+      measurementId: "G-C4D3EWDPGJ"
+    };
+  
+    // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- Local StyleSheet -->
+  <link href="./style.css" rel="stylesheet" />
+
+  <!--JS Files-->
+  <script src="./js/markerHandler.js"></script>
+  <script src="./js/addButtons.js"></script>
+  <script src="./js/addMarkers.js"></script>
+
+
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+  <a-scene vr-mode-ui="enabled: false"
+    embedded
+    arjs="sourceType: webcam; 
+    sourceWidth:1280; sourceHeight:960; 
+    displayWidth: 1280; displayHeight: 960; 
+    debugUIEnabled: false;"
+    gesture-detector create-markers create-buttons> 
+
+    <!-- Camera -->
+    <a-entity camera></a-entity>
+
+    
+  </a-scene>
+
+  <div id="button-div" class="fixed-bottom"></div>
+
+</body>
+
+</html>
